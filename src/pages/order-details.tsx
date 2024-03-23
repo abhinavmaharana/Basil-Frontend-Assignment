@@ -55,14 +55,12 @@ const drinks = [
   },
 ];
 
-interface DrinkItemProps {
-  
-}
+interface DrinkItemProps {}
 
 const OrderDetailsPage: React.FC<DrinkItemProps> = ({}) => {
   // const columns = useMemo(() => orderDetailsTableColumns, [])
   // const data: IOrderDetailsTableRow[] = mockOrderDetailsTableData;
-  
+
   const getStatusStyle = (status: string) => {
     switch (status) {
       case "SUCCESS":
@@ -187,72 +185,70 @@ const OrderDetailsPage: React.FC<DrinkItemProps> = ({}) => {
                 </div>
               </div>
               <div className="mt-4 flex grow flex-col overflow-hidden">
-                    <Table className="lg:w-[1300px] ">
-                      <TableHeader className="">
-                        <TableRow className="border-none">
-                          <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
-                            ID
-                          </TableHead>
-                          <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
-                            DRINK NAME
-                          </TableHead>
-                          <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
-                            CUSTOMISATION
-                          </TableHead>
-                          <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
-                            AMOUNT
-                          </TableHead>
-                          <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
-                            DRINK STATUS
-                          </TableHead>
-                          <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
-                            ACTION
-                          </TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {drinks.map((drink) => (
-                          <TableRow key={drink.id} className="border-none">
-                            <TableCell className="lg:text-lg">
-                              {drink.id}
-                            </TableCell>
-                            <TableCell className="">
-                              <div className="flex items-center space-x-4">
-                                <img src={drink.image} className="w-10" />
-                                <h1 className="lg:text-lg">{drink.name}</h1>
-                              </div>
-                            </TableCell>
-                            <TableCell className="lg:text-lg ">
-                              {drink.customization}
-                            </TableCell>
-                            <TableCell className="lg:text-lg ">
-                              ₹ {drink.amount}
-                            </TableCell>
-                            <TableCell>
-                              <p
-                                className={`text-md flex items-center font-normal leading-5 ${getStatusStyle(drink.status)}`}
-                              >
-                                {drink.status}
-                              </p>
-                            </TableCell>
-                            <TableCell className="">
-                              <Button
-                                className={`justify-center rounded-lg px-5 py-px lg:text-lg ${
-                                  drink.status !== "SUCCESS"
-                                    ? "bg-zinc-400"
-                                    : "bg-blue-500"
-                                }`}
-                                disabled={drink.status !== "SUCCESS"}
-                                onClick={() => handleRefund(drink.amount)}
-                              >
-                                Refund
-                              </Button>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
+                <Table className="lg:w-[1300px] ">
+                  <TableHeader className="">
+                    <TableRow className="border-none">
+                      <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
+                        ID
+                      </TableHead>
+                      <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
+                        DRINK NAME
+                      </TableHead>
+                      <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
+                        CUSTOMISATION
+                      </TableHead>
+                      <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
+                        AMOUNT
+                      </TableHead>
+                      <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
+                        DRINK STATUS
+                      </TableHead>
+                      <TableHead className="lg:text-md text-xs font-bold leading-6 tracking-wider text-blue-500">
+                        ACTION
+                      </TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {drinks.map((drink) => (
+                      <TableRow key={drink.id} className="border-none">
+                        <TableCell className="lg:text-lg">{drink.id}</TableCell>
+                        <TableCell className="">
+                          <div className="flex items-center space-x-4">
+                            <img src={drink.image} className="w-10" />
+                            <h1 className="lg:text-lg">{drink.name}</h1>
+                          </div>
+                        </TableCell>
+                        <TableCell className="lg:text-lg ">
+                          {drink.customization}
+                        </TableCell>
+                        <TableCell className="lg:text-lg ">
+                          ₹ {drink.amount}
+                        </TableCell>
+                        <TableCell>
+                          <p
+                            className={`text-md flex items-center font-normal leading-5 ${getStatusStyle(drink.status)}`}
+                          >
+                            {drink.status}
+                          </p>
+                        </TableCell>
+                        <TableCell className="">
+                          <Button
+                            className={`justify-center rounded-lg px-5 py-px lg:text-lg ${
+                              drink.status !== "SUCCESS"
+                                ? "bg-zinc-400"
+                                : "bg-blue-500"
+                            }`}
+                            disabled={drink.status !== "SUCCESS"}
+                            onClick={() => handleRefund(drink.amount)}
+                          >
+                            Refund
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
               {/* <div className="flex">
                 <OrderDetailsMockData columns={columns} data={data} />
               </div> */}

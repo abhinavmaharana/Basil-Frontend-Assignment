@@ -29,7 +29,7 @@ export default function Layout() {
         }}
         className="flex flex-col"
       >
-        <Outlet />
+        <div className="h-[100vh]"><Outlet /></div>
         <Toaster />
       </div>
     </div>

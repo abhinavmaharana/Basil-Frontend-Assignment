@@ -127,7 +127,7 @@ export default function OrdersPage() {
                               <X className="w-12" />
                             </div>
                           </Button>
-                          <Button className="rounded-full border-2 bg-transparent text-[#5D6679] -ml-12 lg:-ml-8">
+                          <Button className="-ml-12 rounded-full border-2 bg-transparent text-[#5D6679] lg:-ml-8">
                             <div className="flex items-center">
                               <p>Refund Completed</p>
                               <X className="w-12" />
@@ -153,7 +153,7 @@ export default function OrdersPage() {
                     <div className="flex space-x-2">
                       <h1 className="text-[#5D6679]">Machines:</h1>
                       <div className="space-y-2">
-                      <div className="grid grid-cols-1 gap-x-2">
+                        <div className="grid grid-cols-1 gap-x-2">
                           <Button className="w-48 rounded-full border-2 bg-transparent text-[#5D6679]">
                             <div className="flex items-center">
                               <p>Aahaar Stall 23</p>
@@ -162,7 +162,7 @@ export default function OrdersPage() {
                           </Button>
                         </div>
                         <div className="grid grid-cols-2 gap-x-2">
-                        <Button className=" rounded-full border-2 bg-transparent text-[#5D6679]">
+                          <Button className=" rounded-full border-2 bg-transparent text-[#5D6679]">
                             <div className="flex items-center">
                               <p>Aahaar Stall 37</p>
                               <X className="w-12" />
@@ -178,7 +178,9 @@ export default function OrdersPage() {
                       </div>
                     </div>
                     <div className="flex-end text-right">
-                      <h1 className="underline underline-offset-4 text-[#5D6679]">see more</h1>
+                      <h1 className="text-[#5D6679] underline underline-offset-4">
+                        see more
+                      </h1>
                     </div>
                   </div>
                 </div>

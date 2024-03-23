@@ -21,9 +21,9 @@ const Navbar: React.FC<NavbarProps> = ({ title, subTitle }) => {
                 type="text"
                 placeholder="Search"
                 value=""
-                className="focus:outline-buttonprimary rounded-xl border border-gray-300 lg:px-4 py-3 lg:py-4 lg:w-60 pl-10 lg:pl-10"
+                className="focus:outline-buttonprimary rounded-xl border border-gray-300 py-3 pl-10 lg:w-60 lg:px-4 lg:py-4 lg:pl-10"
               />
-              <SearchIcon className="absolute left-3 lg:left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
+              <SearchIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400 lg:left-3" />
             </div>
             <BellDot className="w-12" />
             <Avatar className="h-8 w-8">

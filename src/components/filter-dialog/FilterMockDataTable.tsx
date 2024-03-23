@@ -13,13 +13,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+// import { Pagination } from "../ui/pagination";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function OrderDetailsMockData<TData, TValue>({
+export function FilterMockDataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -41,7 +42,7 @@ export function OrderDetailsMockData<TData, TValue>({
             >
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id} className="h-16 py-2 text-left">
+                  <TableHead key={header.id} className="">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -59,11 +60,11 @@ export function OrderDetailsMockData<TData, TValue>({
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
-                className="cursor-pointer border-none text-left"
+                className="cursor-pointer border-none"
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} className="px-4 py-4 text-left">
+                  <TableCell key={cell.id} className="px-4 py-4">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
@@ -71,14 +72,14 @@ export function OrderDetailsMockData<TData, TValue>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-left">
+              <TableCell colSpan={columns.length} className="h-24">
                 No results.
               </TableCell>
             </TableRow>
           )}
         </TableBody>
       </Table>
-      {/* <div className="mt-auto flex items-center justify-between px-4 py-1">
+      <div className="mt-auto flex items-center justify-between px-4 py-1">
         <div className="flex items-center">
           <span className="flex items-center space-x-1 text-xs text-gray-500">
             <div>Showing </div>
@@ -87,6 +88,9 @@ export function OrderDetailsMockData<TData, TValue>({
               {table.getPageCount()} of {table.getPageCount()} entries
             </strong>
           </span>
+        </div>
+        <div>
+          <h1>Rows per page: {table.getPageCount()}</h1>
         </div>
         <div className="ml-4 flex items-center space-x-5">
           <button
@@ -121,7 +125,7 @@ export function OrderDetailsMockData<TData, TValue>({
             {">>"}
           </button>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
