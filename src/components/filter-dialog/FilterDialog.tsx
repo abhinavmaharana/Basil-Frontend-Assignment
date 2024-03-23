@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, SetStateAction, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -7,6 +7,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { DateRange, DateRangePicker } from 'react-date-range';
+import { addDays } from 'date-fns';
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SearchIcon } from "lucide-react";
@@ -16,6 +18,9 @@ import SentIcon from "@/assets/sent.png";
 import FailureIcon from "@/assets/stop.png";
 import RefundInitiatedIcon from "@/assets/refundinitiated.png";
 import RefundCompletedIcon from "@/assets/refund.png";
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+
 interface IProps {
   children: ReactNode;
 }
@@ -23,10 +28,18 @@ interface IProps {
 export default function FilterDialog(props: IProps) {
   const { children } = props;
 
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: 'selection'
+    }
+  ]);
+
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="max-w-screen-md pb-16 pl-16 pr-16 pt-12">
+      <DialogContent className="max-w-screen-lg pb-16 pl-16 pr-16 pt-12">
         <form className="space-y-10">
           <DialogHeader className="flex items-center">
             <DialogTitle className="font-semibold uppercase">
@@ -50,7 +63,7 @@ export default function FilterDialog(props: IProps) {
             </div>
             <div className="space-y-3">
               <h1>Status</h1>
-              <div className="grid grid-cols-5 gap-x-12 gap-y-4">
+              <div className="grid grid-cols-5 gap-x-2 gap-y-4">
                 <Button className="h-32 w-32 rounded-lg border-2 border-black bg-white hover:bg-white">
                   <div className="space-y-2 text-left text-black">
                     <img src={SuccessIcon} />
@@ -93,8 +106,17 @@ export default function FilterDialog(props: IProps) {
                 </Button>
               </div>
             </div>
-            <div>
+            <div className="space-y-5">
               <h1>Date Range</h1>
+              <div className="flex flex-col col-span-3 mx-auto border-2 rounded-xl">
+                <DateRangePicker
+                  moveRangeOnFirstSelection={false}
+                  months={2}
+                  ranges={state}
+                  rangeColors={['#333333']}
+                  direction="horizontal"
+                />
+              </div>
             </div>
           </div>
           <Separator className="my-4" />
