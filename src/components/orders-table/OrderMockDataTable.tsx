@@ -95,6 +95,9 @@ export function DataTable<TData, TValue>({
             </strong>
           </span>
         </div>
+        <div>
+          <h1>Rows per page: {table.getPageCount()}</h1>
+        </div>
         <div className="ml-4 flex items-center space-x-5">
           <button
             className="rounded p-1 text-sm text-[#B0A6A6]"

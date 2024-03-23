@@ -1,4 +1,4 @@
-import { ReactNode, SetStateAction, useState } from "react";
+import { ReactNode, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { DateRange, DateRangePicker } from 'react-date-range';
+import { DateRangePicker } from 'react-date-range';
 import { addDays } from 'date-fns';
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -28,7 +28,7 @@ interface IProps {
 export default function FilterDialog(props: IProps) {
   const { children } = props;
 
-  const [state, setState] = useState([
+  const [state] = useState([
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 7),
